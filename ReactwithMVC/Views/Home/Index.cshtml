@@ -1,0 +1,80 @@
+﻿@*<h2>Welcome to ASP.NET MVC @ViewData["Version"] on @ViewData["Runtime"]!</h2>*@
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Hello World- React JS</h2>
+
+@*HTML for showing Reactjs Component*@
+
+<div id="helloworldContainer"></div>
+
+@*JQuery Library*@
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+@*ReactJS Library*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
+
+@*JSX converter(JSX to native javascript)*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+@*Here we will create our first React JS components*@
+
+<script type="text/javascript">
+
+    @*class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  componentDidCatch(error, info) {
+    // Display fallback UI
+    this.setState({ hasError: true });
+    // You can also log the error to an error reporting service
+    logErrorToMyService(error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>;
+    }
+    return this.props.children;
+  }
+}*@
+
+
+
+    var HelloWorldComponent= React.createClass({
+         getInitialState : function(){
+                return{
+                    serverMessage : ''
+                };
+         },
+        componentDidMount : function(){
+
+            $.get('/home/GetMessage', function(result){
+                if(this.isMounted){
+                    this.setState({
+                        serverMessage:result
+
+                    })
+                }
+            }.bind(this));
+        },
+        Render: function(){
+            return("<h1>{}this.state.serverMessage}</h1>")
+        }
+    });
+    <errorboundary>
+    <mycomponent/>
+</errorboundary>
+
+    ReactDom.render(
+    "<HelloWorldComponent />",
+    document.getElementById("helloworldContainer"));
+
+</script>
