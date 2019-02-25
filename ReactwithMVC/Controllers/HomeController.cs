@@ -26,7 +26,7 @@ namespace ReactwithMVC.Controllers
         {
             return new JsonResult
             {
-                Data = "Hello World.I am from the server side",
+                Data = "Hello World.I am from the server side yo!",
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
