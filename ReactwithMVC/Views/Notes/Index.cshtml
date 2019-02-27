@@ -56,9 +56,10 @@
     render() {
     console.log("Reached notelist");
     const test = []
-        for(const [id] of mock.entries()){
-        test.push(
-        <Note key={id} />)
+        for(const [key,value] of mock.entries()){
+       console.log("entered loop");
+          test.push(
+            <Note name={value.name} key={key}/>)
         }
      return(
         <div>
@@ -74,7 +75,7 @@
     console.log("Reached note");
     return(
     <div id="NoteListContainer">
-
+        <label> {this.props.name} </label>
         <button>Edit</button>
         <button>Delete</button>
     </div>
