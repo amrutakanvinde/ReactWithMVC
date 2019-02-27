@@ -1,0 +1,88 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes Index</title>
+</head>
+<body>
+
+    <div id="NotesContainer">
+
+    </div>
+
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+@*ReactJS Library*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
+
+@*JSX converter(JSX to native javascript)*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+
+<script type="text/babel">
+    var mock = [ { "id": 1, "name": "Note 1", "date_time_added": {} },
+    { "id": 2, "name": "Note 2", "date_time_added": {} }];
+
+    class ContainerComponent extends React.Component {
+    render(){
+    console.log("Reached container");
+    return(
+    <div>
+        <h1 align="center"> Welcome to Notes App</h1>
+        <HeaderComponent title="Amruta notes" />
+        <NoteList title="Node test" />
+    </div>
+    );
+    }
+    }
+
+    class HeaderComponent extends React.Component {
+    render() {
+    console.log("Reached header");
+    return(
+    <h1> {this.props.title} </h1>
+    );
+    }
+    }
+
+    class NoteList extends React.Component {
+
+    render() {
+    console.log("Reached notelist");
+    const test = []
+        for(const [id] of mock.entries()){
+        test.push(
+        <Note key={id} />)
+        }
+     return(
+        <div>
+            {test}
+        </div>
+
+    );
+    }
+    }
+
+    class Note extends React.Component {
+    render() {
+    console.log("Reached note");
+    return(
+    <div id="NoteListContainer">
+
+        <button>Edit</button>
+        <button>Delete</button>
+    </div>
+    );
+    }
+    }
+
+    ReactDOM.render(
+    <ContainerComponent />,
+    document.getElementById("NotesContainer"));
+</script>
