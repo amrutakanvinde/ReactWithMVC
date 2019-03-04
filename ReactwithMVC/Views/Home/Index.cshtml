@@ -26,7 +26,7 @@
 @*Here we will create our first React JS components*@
 
 <script type="text/babel">
-    var HelloWorldComponent= React.createClass({
+    var HelloWorldComponent = React.createClass({
     getInitialState : function(){
     return{
     serverMessage : ''
@@ -43,6 +43,7 @@
         }.bind(this));
     },
     render: function(){
+    
     return (
     <h1>{this.state.serverMessage} </h1>);
     }
