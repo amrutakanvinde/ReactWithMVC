@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Note from '../components/note.js';
-import ReactBootstrap, {ButtonToolbar, Button} from 'react-bootstrap';
+
 
 
 class NotesList extends Component {
@@ -15,7 +15,7 @@ class NotesList extends Component {
    testServer = test.map(function(object) {
      console.log(object);
      return (
-     <Note name={object.Name} key={object.Id} />
+     <Note name={object.Name} id={object.Id} key={object.Id} />
      );
    })
    }

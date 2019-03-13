@@ -27,6 +27,17 @@ namespace ReactwithMVC.Controllers
             };
         }
 
+        //Method for Adding an Employee
+        public void Add(Note newnote)
+        {
+            Note n = new Note
+            {
+                Id = newnote.Id,
+                Name = newnote.Name,
+                DateTime_Added = newnote.DateTime_Added
+            };
+        }
+
         public JsonResult GetNotes()
         {
             return new JsonResult
@@ -34,6 +45,14 @@ namespace ReactwithMVC.Controllers
                 Data = NotesDeclare(),
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
+        }
+
+        [HttpDelete]
+        [AllowCrossSite]
+        public ActionResult Delete(int id)
+        {
+
+            return RedirectToAction("Index");
         }
     }
 }

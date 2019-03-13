@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../components/header.js';
 import NotesList from '../components/notesList.js';
 import $ from 'jquery';
-import ReactBootstrap, {ButtonToolbar, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Container extends Component {
